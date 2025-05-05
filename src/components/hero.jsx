@@ -36,7 +36,8 @@ export default function Hero() {
                 initial={{opacity:0, x:-100}}
                 animate={{opacity:1, x:0}}
                 transition={{duration:.6, ease:"easeInOut"}}
-                className="text-gray-900 text-8xl">Fortune<span className="text-yellow-500  ">{` <code/>`}</span></motion.span>
+                className="text-gray-900 text-8xl">Fortune</motion.span>
+                <span className="text-yellow-500 text-7xl">{` <code/>`}</span>
 
               </h1>
               <h6  className="my-3.5 font-semibold text-cyan-950 text-2xl">
@@ -76,16 +77,13 @@ Apps móviles, webs modernas y sistemas potentes que se adaptan justo a lo que n
           animate={{opacity:1, y:0}}
           transition={{duration:1, ease:"easeInOut", delay:1}}
           className="flex justify-center gap-10 md:gap-80 my-20">
-            <button type="button" class="text-white bg-gradient-to-br from-gray-900 to-yellow-700 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-yellow-500 dark:focus:yellow-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Contáctenos</button>
+            <button type="button" class="bg-gradient-to-br hover:bg-gradient-to-bl from-gray-900 to-yellow-700 me-2 mb-2 px-5 py-2.5 rounded-lg focus:outline-none focus:ring-4 focus:ring-yellow-500 font-medium text-white text-sm text-center dark:focus:yellow-700">Contáctenos</button>
 
             <button 
             onClick={handleAllowScroll}
-            className="flex items-center bg-gradient-to-t from-zinc-800 to-neutral-700 drop-shadow-xl hover:drop-shadow-md p-3 border-2 border-cyan-800 hover:border-yellow-500 rounded-3xl font-semibold text-yellow-500 hover:text-white text-xl duration-200">
+            className="flex bg-gradient-to-br hover:bg-gradient-to-bl from-gray-900 to-yellow-700 me-2 mb-2 px-5 py-2.5 rounded-lg focus:outline-none focus:ring-4 focus:ring-yellow-500 font-medium text-md text-white text-center dark:focus:yellow-700">
               Conocer Mas
               <ChevronDoubleDownIcon className="pl-2 w-9 animate-bounce" />
-            </button>
-            <button className="bg-gradient-to-t from-zinc-800 to-neutral-700 drop-shadow-xl hover:drop-shadow-md p-3 border-2 border-cyan-800 hover:border-yellow-500 rounded-3xl font-semibold text-yellow-500 hover:text-white text-xl duration-200">
-              Contáctenos
             </button>
           </motion.div>
                   
