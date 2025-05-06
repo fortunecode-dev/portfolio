@@ -24,7 +24,7 @@ export default function Hero() {
       nextSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
-
+ 
   return (
     <main className="relative flex flex-col justify-center items-center bg-[#121212] w-full min-h-screen overflow-hidden">
       {/* Animated Grid Background */}
