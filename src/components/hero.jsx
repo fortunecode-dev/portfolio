@@ -28,7 +28,8 @@ export default function Hero() {
   return (
     <>
       <main className='flex flex-col justify-center items-center bg-gradient-to-tl from-gray-950 to-gray-800 w-full h-screen'>
-        <section className="z-5 flex lg:flex-row flex-col justify-center items-center gap-10 mx-10 lg:mx-20 lg:mt-50">
+        <section className="z-5 relative flex lg:flex-row flex-col justify-center items-center gap-10 mx-10 lg:mx-20 lg:mt-50">
+          <div class="top-1/2 left-1/2 absolute bg-cyan-500 opacity-30 blur-[200px] rounded-full w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 transform"></div>
           <div className="flex flex-col w-full lg:w-1/2">
             <div >
               <h1 className="flex flex-col items-center font-bold">
@@ -83,7 +84,7 @@ Apps móviles, webs modernas y sistemas potentes que se adaptan justo a lo que n
           
         </section>
         
-          <div
+          {/* <div
           
           className="-top-40 sm:-top-150 sm:left-150 relative inset-x-0 blur-3xl transform-gpu animate-pulse"
         >
@@ -94,7 +95,7 @@ Apps móviles, webs modernas y sistemas potentes que se adaptan justo a lo que n
             }}
             className="left-[calc(50%-11rem)] sm:left-[calc(50%-30rem)] absolute bg-linear-to-tr from-[#343100] to-[#e5ff00] opacity-30 w-[36.125rem] sm:w-[72.1875rem] aspect-1155/678 rotate-[30deg] -translate-x-1/2"
           />
-        </div>
+        </div> */}
         
         <div className='z-5 w-full'>
           <motion.div 
