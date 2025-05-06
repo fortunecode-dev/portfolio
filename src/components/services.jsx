@@ -10,13 +10,13 @@ const features = [
   {
     name: "Desarrollo de aplicaciones móviles a medida",
     description:
-      "Creamos apps para Android y iOS adaptadas a las necesidades de tu negocio, con interfaces intuitivas y alto rendimiento.",
+      "Creamos apps para Android adaptadas a las necesidades de tu negocio, con interfaces intuitivas y alto rendimiento.",
     icon: ComputerDesktopIcon
   },
   {
     name: "Diseño y desarrollo de sitios web",
     description:
-      "Construimos sitios web modernos, responsivos y optimizados para SEO que reflejan la identidad de tu marca y mejoran tu presencia en línea.",
+      "Construimos sitios web modernos, responsivos y optimizados  que reflejan la identidad de tu marca y mejoran tu presencia en línea.",
     icon: GlobeAltIcon
   },
   {
@@ -26,9 +26,9 @@ const features = [
     icon: Cog8ToothIcon
   },
   {
-    name: "Integración de servicios en la nube",
+    name: "Analíticas avanzadas",
     description:
-      "Ofrecemos soluciones en la nube seguras y escalables, desde bases de datos remotas hasta despliegue de aplicaciones y almacenamiento en servidores como AWS, Google Cloud o Vercel.",
+      "Algoritmos que transforman tus datos en decisiones estratégicas. Predecimos riesgos, optimizamos procesos y generamos ventajas competitivas en tiempo real.",
     icon: CloudIcon
   }
 ];
