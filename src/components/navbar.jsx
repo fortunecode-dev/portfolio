@@ -1,94 +1,138 @@
-import React from 'react'
+import React from 'react';
 import { useState } from "react";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import Logo from "../assets/image/LOGO.png"
+import Logo from "../assets/image/LOGO.png";
+
 const navigation = [
   { name: "Portal", href: "#" },
-  { name: "Servicios", href: "#" },
-  { name: "Sobre Nosotros", href: "#" },
+  { name: "Servicios", href: "#services" },
+  { name: "Sobre Nosotros", href: "#about" },
 ];
+
 export default function NavBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  return <header className="top-0 z-50 fixed inset-x-0">
-      <nav aria-label="Global" className="flex mx-40 mt-10">
-        <div className="flex justify-between mx-5 w-full">
-          <div className="flex">
-            <a href="#" className="flex items-center">
-              <img src={Logo} alt="logo" className="w-1/8" />
-              <h1 className="flex gap-1 font-bold text-3xl">
-                <span className="bg-clip-text bg-gradient-to-t from-gray-700 to-gray-100 text-transparent">
-                  Fortune
-                </span>
-                <span className="bg-clip-text bg-gradient-to-t from-yellow-500 to-gray-100 text-transparent">
-                  Code
-                </span>
-              </h1>
+  const [scrolled, setScrolled] = useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 10;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+
+    document.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrolled]);
+
+  return (
+    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#121212]/90 backdrop-blur-md py-2 shadow-lg' : 'bg-transparent py-4'}`}>
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8">
+        {/* Logo */}
+        <div className="flex lg:flex-1">
+          <a href="#" className="-m-1.5 p-1.5 flex items-center">
+            <img src={Logo} alt="logo" className="h-10 w-auto" />
+            <span className="ml-3 text-2xl font-bold text-white">
+              Fortune<span className="text-[#f0b100]">Code</span>
+            </span>
+          </a>
+        </div>
+
+        {/* Mobile menu button */}
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400 hover:text-[#f0b100]"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <Bars3Icon className="h-8 w-8" aria-hidden="true" />
+          </button>
+        </div>
+
+        {/* Desktop navigation */}
+        <div className="hidden lg:flex lg:gap-x-12 lg:items-center">
+          {navigation.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              className="text-sm font-semibold leading-6 text-gray-300 hover:text-[#f0b100] transition-colors duration-200 relative group"
+            >
+              {item.name}
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#f0b100] transition-all duration-300 group-hover:w-full"></span>
             </a>
-          </div>
-          <div className="lg:hidden flex">
-            <button type="button" onClick={() => setMobileMenuOpen(true)} className="inline-flex justify-center items-center -m-2.5 p-2.5 rounded-md font-bold text-gray-700">
-              <span className="sr-only">Open main menu</span>
-              <Bars3Icon aria-hidden="true" className="size-10 text-yellow-500" />
-            </button>
-          </div>
-          <div className="hidden lg:flex items-center lg:gap-x-12 bg-gray-950 -ml-80 px-4 rounded-4xl text-white">
-            {navigation.map(item =>
-              <a
-                key={item.name}
-                href={item.href}
-                className="hover:bg-gray-900 px-3 py-1 rounded-2xl font-normal text-white hover:text-amber-500 text-lg"
-              >
-                {item.name}
-              </a>
-            )}
-          </div>
-          <a href="#" className="hidden lg:flex items-center bg-gray-950 hover:bg-gray-700 shadow-xl px-5 rounded-4xl font-bold text-yellow-500 hover:scale-105 duration-75">
-            Contáctenos
+          ))}
+        </div>
+
+        {/* CTA Button */}
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <a
+            href="#contact"
+            className="rounded-lg bg-[#f0b100] px-4 py-2 text-sm font-semibold text-[#121212] shadow-sm hover:bg-[#f0b100]/90 transition-colors duration-200 flex items-center gap-1"
+          >
+            Conocer más
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
+              <path fillRule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clipRule="evenodd" />
+            </svg>
           </a>
         </div>
       </nav>
-      <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
-        <div className="z-50 fixed inset-0" />
-        <DialogPanel className="right-0 z-50 fixed inset-y-0 bg-gray-900 px-6 py-6 sm:ring-1 sm:ring-gray-900/10 w-full sm:max-w-sm overflow-y-auto">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center">
-              <a href="#" className="-m-1">
-                <img src={Logo} alt="logo" className="w-20" />
-              </a>
-              <div>
-                <h1 className="flex flex-col gap-1 font-bold text-3xl">
-                  <span className="text-white">Fortune</span>
-                  <span className="text-yellow-500">
-                    {"<code/>"}
-                  </span>
-                </h1>
-              </div>
-            </div>
-            <button type="button" onClick={() => setMobileMenuOpen(false)} className="-m-2.5 p-2.5 rounded-md text-white hover:text-yellow-500">
+
+      {/* Mobile menu */}
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
+        <div className="fixed inset-0 z-50" />
+        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#121212] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+          <div className="flex items-center justify-between">
+            <a href="#" className="-m-1.5 p-1.5 flex items-center">
+              <img src={Logo} alt="logo" className="h-10 w-auto" />
+              <span className="ml-3 text-2xl font-bold text-white">
+                Fortune<span className="text-[#f0b100]">Code</span>
+              </span>
+            </a>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-gray-400 hover:text-[#f0b100]"
+              onClick={() => setMobileMenuOpen(false)}
+            >
               <span className="sr-only">Close menu</span>
-              <XMarkIcon aria-hidden="true" className="size-10" />
+              <XMarkIcon className="h-8 w-8" aria-hidden="true" />
             </button>
           </div>
-          <div className="flow-root mt-6">
-            <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
-                {navigation.map(item =>
+          <div className="mt-12 flow-root">
+            <div className="-my-6 divide-y divide-gray-700">
+              <div className="space-y-4 py-6">
+                {navigation.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
-                    className="block hover:bg-cyan-900 -mx-3 px-3 py-2 rounded-lg font-semibold text-white hover:text-yellow-500 text-base/7"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-300 hover:bg-gray-800 hover:text-[#f0b100] transition-colors duration-200"
+                    onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.name}
                   </a>
-                )}
+                ))}
               </div>
-              <a href="#" className="block hover:bg-cyan-900 -mx-3 px-3 py-2 rounded-lg font-semibold text-yellow-500 hover:text-yellow-500 text-base/7">
-                Contáctenos
-              </a>
+              <div className="py-6">
+                <a
+                  href="#contact"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-[#121212] bg-[#f0b100] hover:bg-[#f0b100]/90 transition-colors duration-200"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Conocer más
+                </a>
+              </div>
             </div>
           </div>
         </DialogPanel>
       </Dialog>
-    </header>;
+    </header>
+  );
 }

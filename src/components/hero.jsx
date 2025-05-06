@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
-// import manolo from '../assets/image/christian-velitchkov-oCD1HUJmFIM.jpg';
 import { ChevronDoubleDownIcon } from '@heroicons/react/24/outline';
 import Typewriter from 'typewriter-effect';
 import { motion } from 'framer-motion';
 
 export default function Hero() {
-  const [allowScroll, setAllowScroll] = useState(false)
+  const [allowScroll, setAllowScroll] = useState(false);
 
-  useEffect(()=>{
+  useEffect(() => {
     if (!allowScroll) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -25,99 +24,182 @@ export default function Hero() {
       nextSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
   return (
-    <>
-      <main className='flex flex-col justify-center items-center bg-gradient-to-tl from-gray-950 to-gray-800 w-full h-screen'>
-        <section className="z-5 relative flex lg:flex-row flex-col justify-center items-center gap-10 mx-10 lg:mx-20 lg:mt-50">
-          <div class="top-1/2 left-1/2 absolute bg-cyan-500 opacity-30 blur-[200px] rounded-full w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 transform"></div>
-          <div className="flex flex-col w-full lg:w-1/2">
-            <div >
-              <h1 className="flex flex-col items-center font-bold">
-                <motion.span 
-                initial={{opacity:0, x:-100}}
-                animate={{opacity:1, x:0}}
-                transition={{duration:.6, ease:"easeInOut"}}
-                style={{
-                  filter: "drop-shadow(1px 5px 10px rgba(0,0,0))"
-                }}
-                className="bg-clip-text bg-gradient-to-t from-gray-700 to-gray-100 text-transparent text-9xl">Fortune</motion.span>
-                <motion.span
-                initial={{opacity:0, x:-100}} 
-                animate={{opacity:1, x:0}}
-                transition={{duration:1, ease:"easeInOut"}}
-                style={{
-                  filter: "drop-shadow(1px 5px 10px rgba(0,0,0))"
-                }}
-                className="bg-clip-text bg-gradient-to-t from-yellow-500 to-zinc-100 text-transparent text-9xl">{` <code/>`}</motion.span>
-
-              </h1>
-              <motion.p 
-            initial={{opacity:0, y:100}}
-            animate={{opacity:1, y:0}}
-            transition={{duration:1.2, ease:"easeInOut"}}
-            className="mt-10 font-mono text-zinc-200 text-xl text-center">
-             Creamos software a tu medida para que tu negocio crezca.
-Apps móviles, webs modernas y sistemas potentes que se adaptan justo a lo que necesitas. ¿Empezando o escalando? Nosotros te damos la tecnología para lograrlo.
-            </motion.p>
-              <h6  className="my-3.5 pt-9 font-mono font-semibold text-zinc-200 text-3xl text-center">
-                 
-                  <Typewriter
-                  options={{
-                    strings: [` Programamos tu suerte`],
-                    autoStart: true,
-                    loop: true,
-                  }}
-                  />
-                  
-                </h6>
-            </div>
-            
-          </div>
-          {/* <div>
-            <motion.img 
-            initial={{opacity:0, y:100}}
-            animate={{opacity:1, y:0}}
-            transition={{duration:1, ease:"easeInOut", delay:1}}
-            viewport={{once:true}}
-            src={manolo} alt="programador" className="rounded-2xl w-120 min-w-xl" />
-          </div> */}
-          
-        </section>
-        
-          {/* <div
-          
-          className="-top-40 sm:-top-150 sm:left-150 relative inset-x-0 blur-3xl transform-gpu animate-pulse"
-        >
-          <div
-            style={{
-              clipPath:
-                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-            }}
-            className="left-[calc(50%-11rem)] sm:left-[calc(50%-30rem)] absolute bg-linear-to-tr from-[#343100] to-[#e5ff00] opacity-30 w-[36.125rem] sm:w-[72.1875rem] aspect-1155/678 rotate-[30deg] -translate-x-1/2"
-          />
-        </div> */}
-        
-        <div className='z-5 w-full'>
-          <motion.div 
-          initial={{opacity:0, y:100}}
-          animate={{opacity:1, y:0}}
-          transition={{duration:1.3, ease:"easeInOut"}}
-          className="flex justify-center gap-10 md:gap-80 my-20">
-            {/* <button type="button" class="hover:bg-yellow-500 bg-gradient-to-bl hover:bg-gradient-to-bl from-yellow-500 to-85% to-zinc-600 me-2 mb-2 px-5 py-2.5 rounded-lg focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium text-white text-sm text-center dark:focus:yellow-700">Contáctenos</button> */}
-
-            <button 
-            onClick={handleAllowScroll}
-            className="flex hover:bg-yellow-500 bg-gradient-to-br from-yellow-500 to-80% to-gray-900 shadow-lg me-2 mb-2 px-5 py-2.5 border-t-1 border-t-zinc-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-yellow-300 font-bold text-md text-white text-center">
-              Conocer Mas
-              <ChevronDoubleDownIcon className="pl-2 w-9 animate-bounce" />
-            </button>
-          </motion.div>
-                  
+    <main className="relative flex flex-col items-center justify-center w-full min-h-screen bg-[#121212] overflow-hidden">
+      {/* Animated Grid Background */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          {Array.from({ length: 20 }).map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute border border-[#f0b100]/10"
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                width: `${Math.random() * 300 + 100}px`,
+                height: `${Math.random() * 300 + 100}px`,
+              }}
+              animate={{
+                x: [0, Math.random() * 100 - 50],
+                y: [0, Math.random() * 100 - 50],
+                rotate: [0, 360],
+              }}
+              transition={{
+                duration: Math.random() * 30 + 20,
+                repeat: Infinity,
+                repeatType: 'reverse',
+                ease: 'linear',
+              }}
+            />
+          ))}
         </div>
-        {/* <div className='hidden lg:block right-0 z-1 absolute bg-gradient-to-br from-50% from-transparent to-50% to-cyan-950/20 w-2/3 h-screen'>
+        
+        {/* More, smaller and faster glowing particles */}
+        {Array.from({ length: 20 }).map((_, i) => (
+          <motion.div
+            key={`dot-${i}`}
+            className="absolute rounded-full bg-[#f0b100]"
+            style={{
+              width: `${Math.random() * 10 + 2}px`,
+              height: `${Math.random() * 10 + 2}px`,
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              opacity: 0.3,
+              filter: 'blur(1px)',
+            }}
+            animate={{
+              opacity: [0.1, 0.4, 0.1],
+              scale: [1, 1.5, 1],
+            }}
+            transition={{
+              duration: Math.random() * 5 + 3,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          />
+        ))}
+      </div>
 
-        </div> */}
-      </main>
-    </>
-  )
+      {/* Enhanced Glowing lights */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div 
+          className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-[#f0b100] rounded-full filter blur-[120px] opacity-15"
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.05, 0.2, 0.05],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        />
+        <motion.div 
+          className="absolute bottom-1/3 right-1/3 w-[300px] h-[300px] bg-[#f0b100] rounded-full filter blur-[100px] opacity-15"
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.05, 0.25, 0.05],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: 'easeInOut',
+            delay: 1
+          }}
+        />
+      </div>
+
+      {/* Content */}
+      <section className="relative z-10 flex flex-col items-center justify-center w-full max-w-6xl px-6 mx-auto text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col items-center"
+        >
+          {/* Logo/Brand */}
+          <div className="mb-2">
+            <motion.span 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="inline-block px-4 py-2 text-sm font-medium tracking-wider text-[#f0b100] uppercase bg-[#f0b100]/10 rounded-full border border-[#f0b100]/30"
+            >
+              FortuneCode
+            </motion.span>
+          </div>
+
+          {/* Main headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="max-w-4xl mx-auto text-5xl font-bold leading-tight text-white md:text-6xl lg:text-7xl"
+          >
+            Construimos el futuro{' '}
+            <span className="relative inline-block">
+              <span className="relative z-10">digital</span>
+              <span className="absolute bottom-0 left-0 w-full h-3 bg-[#f0b100]/50 -rotate-1 z-0" />
+            </span>{' '}
+            de tu negocio
+          </motion.h1>
+
+          {/* Subheadline */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="max-w-2xl mx-auto mt-6 text-lg leading-relaxed text-gray-300 md:text-xl"
+          >
+            Soluciones tecnológicas personalizadas que escalan con tu visión.
+            Desde apps móviles hasta sistemas empresariales complejos.
+          </motion.p>
+
+          {/* Animated CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7, duration: 0.8 }}
+            className="flex flex-col items-center mt-12 space-y-8"
+          >
+            <div className="relative group">
+              <button
+                onClick={handleAllowScroll}
+                className="relative z-10 flex items-center px-8 py-4 text-lg font-medium text-[#121212] transition-all duration-300 transform bg-[#f0b100] rounded-xl shadow-lg hover:shadow-xl hover:scale-105 group-hover:bg-[#f0b100]/90"
+              >
+                Contáctenos
+                <ChevronDoubleDownIcon className="w-6 h-6 ml-3 animate-bounce" />
+              </button>
+              <motion.div 
+                className="absolute inset-0 z-0 rounded-xl bg-[#f0b100] blur-md opacity-0"
+                animate={{
+                  opacity: [0, 0.5, 0],
+                  scale: [1, 1, 1]
+                }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+            </div>
+
+            {/* Typewriter effect */}
+            <div className="mt-6 text-2xl text-[#f0b100] font-mono">
+              <Typewriter
+                options={{
+                  strings: ['100% PERSONALIZADO', 'TECNOLOGÍA DE PUNTA', 'RESULTADOS MEDIBLES'],
+                  autoStart: true,
+                  loop: true,
+                  delay: 50,
+                  deleteSpeed: 30,
+                }}
+              />
+            </div>
+          </motion.div>
+        </motion.div>
+      </section>
+    </main>
+  );
 }
