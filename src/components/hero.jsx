@@ -54,7 +54,7 @@ export default function Hero() {
             initial={{opacity:0, y:100}}
             animate={{opacity:1, y:0}}
             transition={{duration:1.2, ease:"easeInOut"}}
-            className="mt-10 font-mono text-zinc-200 text-2xl">
+            className="mt-10 font-mono text-zinc-200 text-xl text-center">
              Creamos software a tu medida para que tu negocio crezca.
 Apps móviles, webs modernas y sistemas potentes que se adaptan justo a lo que necesitas. ¿Empezando o escalando? Nosotros te damos la tecnología para lograrlo.
             </motion.p>
@@ -83,18 +83,18 @@ Apps móviles, webs modernas y sistemas potentes que se adaptan justo a lo que n
           
         </section>
         
-          {/* <div
+          <div
           
-          className="-top-40 sm:-top-150 sm:left-150 relative inset-x-0 blur-3xl transform-gpu"
+          className="-top-40 sm:-top-150 sm:left-150 relative inset-x-0 blur-3xl transform-gpu animate-pulse"
         >
           <div
             style={{
               clipPath:
                 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
             }}
-            className="left-[calc(50%-11rem)] sm:left-[calc(50%-30rem)] absolute bg-linear-to-tr from-[#343100] to-[#e5ff00] opacity-30 w-[36.125rem] sm:w-[72.1875rem] aspect-1155/678 rotate-[30deg] -translate-x-1/2 animate-pulse"
+            className="left-[calc(50%-11rem)] sm:left-[calc(50%-30rem)] absolute bg-linear-to-tr from-[#343100] to-[#e5ff00] opacity-30 w-[36.125rem] sm:w-[72.1875rem] aspect-1155/678 rotate-[30deg] -translate-x-1/2"
           />
-        </div> */}
+        </div>
         
         <div className='z-5 w-full'>
           <motion.div 

@@ -11,12 +11,12 @@ const navigation = [
 export default function NavBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return <header className="top-0 z-50 fixed inset-x-0">
-      <nav aria-label="Global" className="flex mt-10">
+      <nav aria-label="Global" className="flex mx-40 mt-10">
         <div className="flex justify-between mx-5 w-full">
           <div className="flex">
             <a href="#" className="flex items-center">
               <img src={Logo} alt="logo" className="w-1/8" />
-              <h1 className="flex gap-1 font-bold text-4xl">
+              <h1 className="flex gap-1 font-bold text-3xl">
                 <span className="bg-clip-text bg-gradient-to-t from-gray-700 to-gray-100 text-transparent">
                   Fortune
                 </span>
@@ -32,18 +32,18 @@ export default function NavBar() {
               <Bars3Icon aria-hidden="true" className="size-10 text-yellow-500" />
             </button>
           </div>
-          <div className="hidden lg:flex items-center lg:gap-x-12 bg-gray-950 -ml-80 p-3 rounded-4xl text-white">
+          <div className="hidden lg:flex items-center lg:gap-x-12 bg-gray-950 -ml-80 px-4 rounded-4xl text-white">
             {navigation.map(item =>
               <a
                 key={item.name}
                 href={item.href}
-                className="hover:bg-gray-900 p-3 rounded-2xl font-normal text-white hover:text-amber-500 text-lg"
+                className="hover:bg-gray-900 px-3 py-1 rounded-2xl font-normal text-white hover:text-amber-500 text-lg"
               >
                 {item.name}
               </a>
             )}
           </div>
-          <a href="#" className="hidden lg:flex items-center bg-gray-950 hover:bg-gray-700 shadow-xl p-5 rounded-4xl font-bold text-yellow-500 hover:scale-105 duration-75">
+          <a href="#" className="hidden lg:flex items-center bg-gray-950 hover:bg-gray-700 shadow-xl px-5 rounded-4xl font-bold text-yellow-500 hover:scale-105 duration-75">
             Contáctenos
           </a>
         </div>
