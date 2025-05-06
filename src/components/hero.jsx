@@ -26,9 +26,9 @@ export default function Hero() {
   };
 
   return (
-    <main className="relative flex flex-col items-center justify-center w-full min-h-screen bg-[#121212] overflow-hidden">
+    <main className="relative flex flex-col justify-center items-center bg-[#121212] w-full min-h-screen overflow-hidden">
       {/* Animated Grid Background */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
+      <div className="z-0 absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           {Array.from({ length: 20 }).map((_, i) => (
             <motion.div
@@ -59,14 +59,14 @@ export default function Hero() {
         {Array.from({ length: 20 }).map((_, i) => (
           <motion.div
             key={`dot-${i}`}
-            className="absolute rounded-full bg-[#f0b100]"
+            className="absolute bg-[#f0b100] rounded-full"
             style={{
               width: `${Math.random() * 10 + 2}px`,
               height: `${Math.random() * 10 + 2}px`,
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
               opacity: 0.3,
-              filter: 'blur(1px)',
+              filter: 'blur(5px)',
             }}
             animate={{
               opacity: [0.1, 0.4, 0.1],
@@ -84,7 +84,7 @@ export default function Hero() {
       {/* Enhanced Glowing lights */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
-          className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-[#f0b100] rounded-full filter blur-[120px] opacity-15"
+          className="top-1/4 left-1/4 absolute bg-[#f0b100] opacity-15 blur-[120px] rounded-full w-[400px] h-[400px] filter"
           animate={{
             scale: [1, 1.3, 1],
             opacity: [0.05, 0.2, 0.05],
@@ -96,7 +96,7 @@ export default function Hero() {
           }}
         />
         <motion.div 
-          className="absolute bottom-1/3 right-1/3 w-[300px] h-[300px] bg-[#f0b100] rounded-full filter blur-[100px] opacity-15"
+          className="right-1/3 bottom-1/3 absolute bg-[#f0b100] opacity-15 blur-[100px] rounded-full w-[300px] h-[300px] filter"
           animate={{
             scale: [1, 1.4, 1],
             opacity: [0.05, 0.25, 0.05],
@@ -111,7 +111,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <section className="relative z-10 flex flex-col items-center justify-center w-full max-w-6xl px-6 mx-auto text-center">
+      <section className="z-10 relative flex flex-col justify-center items-center mx-auto px-6 w-full max-w-6xl text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -124,7 +124,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="inline-block px-4 py-2 text-sm font-medium tracking-wider text-[#f0b100] uppercase bg-[#f0b100]/10 rounded-full border border-[#f0b100]/30"
+              className="inline-block bg-[#f0b100]/10 px-4 py-2 border border-[#f0b100]/30 rounded-full font-medium text-[#f0b100] text-sm uppercase tracking-wider"
             >
               FortuneCode
             </motion.span>
@@ -135,12 +135,12 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="max-w-4xl mx-auto text-5xl font-bold leading-tight text-white md:text-6xl lg:text-7xl"
+            className="mx-auto max-w-4xl font-bold text-white text-5xl md:text-6xl lg:text-7xl leading-tight"
           >
             Construimos el futuro{' '}
-            <span className="relative inline-block">
-              <span className="relative z-10">digital</span>
-              <span className="absolute bottom-0 left-0 w-full h-3 bg-[#f0b100]/50 -rotate-1 z-0" />
+            <span className="inline-block relative">
+              <span className="z-10 relative">digital</span>
+              <span className="bottom-0 left-0 z-0 absolute bg-[#f0b100]/50 w-full h-3 -rotate-1" />
             </span>{' '}
             de tu negocio
           </motion.h1>
@@ -150,7 +150,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="max-w-2xl mx-auto mt-6 text-lg leading-relaxed text-gray-300 md:text-xl"
+            className="mx-auto mt-6 max-w-2xl text-gray-300 text-lg md:text-xl leading-relaxed"
           >
             Soluciones tecnológicas personalizadas que escalan con tu visión.
             Desde apps móviles hasta sistemas empresariales complejos.
@@ -161,18 +161,18 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="flex flex-col items-center mt-12 space-y-8"
+            className="flex flex-col items-center space-y-8 mt-12"
           >
-            <div className="relative group">
+            <div className="group relative">
               <button
                 onClick={handleAllowScroll}
-                className="relative z-10 flex items-center px-8 py-4 text-lg font-medium text-[#121212] transition-all duration-300 transform bg-[#f0b100] rounded-xl shadow-lg hover:shadow-xl hover:scale-105 group-hover:bg-[#f0b100]/90"
+                className="z-10 relative flex items-center bg-[#f0b100] group-hover:bg-[#f0b100]/90 shadow-lg hover:shadow-xl px-8 py-4 rounded-xl font-medium text-[#121212] text-lg hover:scale-105 transition-all duration-300 transform"
               >
                 Contáctenos
-                <ChevronDoubleDownIcon className="w-6 h-6 ml-3 animate-bounce" />
+                <ChevronDoubleDownIcon className="ml-3 w-6 h-6 animate-bounce" />
               </button>
               <motion.div 
-                className="absolute inset-0 z-0 rounded-xl bg-[#f0b100] blur-md opacity-0"
+                className="z-0 absolute inset-0 bg-[#f0b100] opacity-0 blur-md rounded-xl"
                 animate={{
                   opacity: [0, 0.5, 0],
                   scale: [1, 1, 1]
@@ -186,7 +186,7 @@ export default function Hero() {
             </div>
 
             {/* Typewriter effect */}
-            <div className="mt-6 text-2xl text-[#f0b100] font-mono">
+            <div className="mt-6 font-mono text-[#f0b100] text-2xl">
               <Typewriter
                 options={{
                   strings: ['100% PERSONALIZADO', 'TECNOLOGÍA DE PUNTA', 'RESULTADOS MEDIBLES'],
