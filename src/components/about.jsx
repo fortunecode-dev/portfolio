@@ -6,7 +6,7 @@ import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline';
 
 export default function About() {
   return (
-<div id='about' className="flex lg:flex-row flex-col justify-center items-center gap-20 bg-[#181818] px-10 py-20 lg:py-32 min-h-screen">
+<div id='contact' className="flex lg:flex-row flex-col justify-center items-center gap-20 bg-[#181818] px-10 py-20 lg:py-32 min-h-screen">
 
   <div className="flex flex-col items-start gap-10 lg:w-1/2">
     <div>

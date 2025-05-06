@@ -1,15 +1,16 @@
 import NavBar from "./components/navbar";
 import Hero from "./components/hero";
 import About from "./components/about";
+import Services from "./components/services"
 function App() {
 
   return <div>
       <NavBar />
       <Hero />
+      <Services />
       <About />
       
-      {/* <Services />
-      <Mision />
+      {/* <Mision />
       <Cta />
       <Footer /> */}
     </div>;
