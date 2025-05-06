@@ -37,7 +37,7 @@ export default function Services() {
   return (
     <div
       id="services"
-      className="relative bg-[#121212] py-24 sm:py-32 overflow-hidden"
+      className="relative bg-[#121212] py-24 sm:py-20 overflow-hidden"
     >
       {/* Fondo decorativo similar al Hero */}
       <div className="z-0 absolute inset-0 opacity-20 overflow-hidden">
