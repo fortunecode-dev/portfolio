@@ -7,6 +7,7 @@ function App() {
       <NavBar />
       <Hero />
       <About />
+      
       {/* <Services />
       <Mision />
       <Cta />
