@@ -138,7 +138,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="mx-auto max-w-4xl font-bold text-white text-5xl md:text-6xl lg:text-7xl leading-tight"
+            className="mx-auto max-w-4xl font-bold text-white text-4xl md:text-6xl lg:text-7xl leading-tight"
           >
             Construimos el futuro{' '}
             <span className="inline-block relative">
@@ -153,7 +153,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="mx-auto mt-6 max-w-2xl text-gray-300 text-lg md:text-xl leading-relaxed"
+            className="mx-auto mt-6 max-w-2xl text-gray-300 text-md md:text-xl leading-relaxed"
           >
             Soluciones tecnológicas personalizadas que escalan con tu visión.
             Desde apps móviles hasta sistemas empresariales complejos.
