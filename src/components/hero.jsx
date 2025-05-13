@@ -19,16 +19,17 @@ export default function Hero() {
 
   const handleAllowScroll = () => {
     setAllowScroll(true);
-    const nextSection = document.querySelector('#about');
+    const nextSection = document.querySelector('#services');
     if (nextSection) {
       nextSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
-
+ 
   return (
     <main className="relative flex flex-col justify-center items-center bg-[#121212] w-full min-h-screen overflow-hidden">
       {/* Animated Grid Background */}
       <div className="z-0 absolute inset-0 overflow-hidden">
+
         <div className="absolute inset-0 opacity-20">
           {Array.from({ length: 20 }).map((_, i) => (
             <motion.div
@@ -112,6 +113,8 @@ export default function Hero() {
 
       {/* Content */}
       <section className="z-10 relative flex flex-col justify-center items-center mx-auto px-6 w-full max-w-6xl text-center">
+        {/* <div className='mb-20 border-1 border-yellow-300 w-1/2'></div>
+        <div style={{clipPath: "polygon(30% 0, 70% 0, 100% 100%, 0% 100%)"}} className='bg-yellow-500/20 w-full h-150'></div> */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -135,7 +138,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="mx-auto max-w-4xl font-bold text-white text-5xl md:text-6xl lg:text-7xl leading-tight"
+            className="mx-auto max-w-4xl font-bold text-white text-4xl md:text-6xl lg:text-7xl leading-tight"
           >
             Construimos el futuro{' '}
             <span className="inline-block relative">
@@ -150,7 +153,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="mx-auto mt-6 max-w-2xl text-gray-300 text-lg md:text-xl leading-relaxed"
+            className="mx-auto mt-6 max-w-2xl text-gray-300 text-md md:text-xl leading-relaxed"
           >
             Soluciones tecnológicas personalizadas que escalan con tu visión.
             Desde apps móviles hasta sistemas empresariales complejos.
@@ -168,7 +171,7 @@ export default function Hero() {
                 onClick={handleAllowScroll}
                 className="z-10 relative flex items-center bg-[#f0b100] group-hover:bg-[#f0b100]/90 shadow-lg hover:shadow-xl px-8 py-4 rounded-xl font-medium text-[#121212] text-lg hover:scale-105 transition-all duration-300 transform"
               >
-                Contáctenos
+                Conocer más
                 <ChevronDoubleDownIcon className="ml-3 w-6 h-6 animate-bounce" />
               </button>
               <motion.div 
